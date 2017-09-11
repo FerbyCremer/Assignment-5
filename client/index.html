@@ -4,6 +4,16 @@
     <base href="/">
     <link rel="stylesheet" href="/public/lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <!-- Dependencies -->
+    <script src="/public/lib/angular/angular.js"></script>
+    <script src="/public/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/public/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/public/lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/public/lib/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="/public/lib/lodash/dist/lodash.min.js"></script>
+    <script src="/public/lib/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+    <script src="/public/lib/angular-google-maps/dist/angular-google-maps.min.js"></script>
   </head>
   <body ng-app="directoryApp">
     <div class="container">
@@ -24,16 +34,6 @@
       </div>
       <div ui-view></div>
     </div>
-    <!-- Dependencies -->
-    <script src="/public/lib/jquery/dist/jquery.min.js"></script
-    <script src="/public/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/public/lib/angular/angular.js"></script>
-    <script src="/public/lib/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="/public/lib/angular-bootstrap/ui-bootstrap.js"></script>
-    <script src="/public/lib/lodash/dist/lodash.min.js"></script>
-    <script src="/public/lib/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
-    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
-    <script src="/public/lib/angular-google-maps/dist/angular-google-maps.min.js"></script>
 
     <!-- Application Source Code -->
     <script src="app/app.js"></script>

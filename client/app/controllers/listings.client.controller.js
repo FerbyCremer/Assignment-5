@@ -79,6 +79,14 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
         successfully finished, navigate back to the 'listing.list' state using $state.go(). If an error 
         occurs, pass it to $scope.error. 
        */
+       if(isValid){
+         $scope.listing.find($scope.update).then($scope.listing = $scope.update, function(response){
+           $state.go('listings.list', { successMessage: 'Listing succesfully created!' });
+           }, function(error) {
+             //otherwise display the error
+             scope.error = 'Unable to save listing!\n' + error;
+         });
+       }
     };
 
     $scope.remove = function() {
@@ -86,6 +94,23 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
         Implement the remove function. If the removal is successful, navigate back to 'listing.list'. Otherwise, 
         display the error. 
        */
+       $scope.listing.find(this).then(function(response) {
+       let newListings = [];  //copy over list of buildings into new array while filtering out the ones to delete
+                      newListings = $scope.listings.filter(function (listing) {
+                        let deleteName = this.name;
+                        let deleteCode = this.code;
+                        if ( listing.name !== deleteName && listing.code !== deleteCode) {
+                          return listing;
+                        }
+                      });
+                      //then replace listings with newListings
+                      $scope.listings = newListings;
+         //if the object is successfully saved redirect back to the list page
+         $state.go('listings.list', { successMessage: 'Listing succesfully created!' });
+         }, function(error) {
+           //otherwise display the error
+           $scope.error = 'Unable to save listing!\n' + error;
+         });
     };
 
     /* Bind the success message to the scope if it exists as part of the current state */

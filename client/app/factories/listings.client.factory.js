@@ -21,7 +21,6 @@ angular.module('listings').factory('Listings', ['$http',
         return $http.delete('http://localhost:8080/api/listings/' + id);
       }
     };
-
     return methods;
   }
 ]);

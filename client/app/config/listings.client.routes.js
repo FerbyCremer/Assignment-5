@@ -1,5 +1,5 @@
 angular.module('listings').config(['$stateProvider', '$urlRouterProvider', 
-  function($stateProvider) {
+  function($stateProvider, $urlRouterProvider) {
     //Listings state providing
     $stateProvider
       .state('listings', {
@@ -21,6 +21,14 @@ angular.module('listings').config(['$stateProvider', '$urlRouterProvider',
       .state('listings.view', {
         url: '/:listingId', 
         templateUrl: 'app/views/view-listing.client.view.html'
+      })
+      .state('listings.edit', {
+        url: '/:listingEdit',
+        templateUrl: 'app/views/edit-listing.client.view.html'
+      })
+      .state('listings.map', {
+        url: '/map',
+        templateUrl: 'app/views/map-listings.client.view.html'
       })
       /*
         Create a state for editing an individual listing, and another for the map view. 
