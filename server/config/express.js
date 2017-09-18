@@ -3,7 +3,7 @@ var path = require('path'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
-    config = require('./config.js'),
+    config = require('./config'),
     listingsRouter = require('../routes/listings.server.routes.js'),
     getCoordinates = require('../controllers/coordinates.server.controller.js');
 
@@ -26,12 +26,12 @@ module.exports.init = function() {
 
   /* use the listings router for requests to the api */
   app.use('/api/listings', listingsRouter);
-
+  console.log("server listings ");
   /* server wrapper around Google Maps API to get latitude + longitude coordinates from address */
   app.post('/api/coordinates', getCoordinates, function(req, res) {
     res.send(req.results);
   });
-
+console.log("coordinates");
   /* go to homepage for all routes not specified */ 
   app.all('/*', function(req, res) {
     res.sendFile(path.resolve('client/index.html'));
